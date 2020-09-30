@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import UserCard from './components/UserCard'
+import FollowerData from './components/FollowerData'
 
 class App extends React.Component {
 
@@ -8,22 +9,24 @@ class App extends React.Component {
     name: "",
     username: "",
     image: "",
-    location: ""
+    location: "",
+    followerInfo: []
   }
 
   componentDidMount() {
-  this.gvicas(this.state.myInfo)
-  }
+    Promise.all ([
+    fetch(`https://api.github.com/users/gvicas17`),
+    fetch(`https://api.github.com/users/gvicas17/followers`)
+    ])
 
-  gvicas = () => {
-    fetch(`https://api.github.com/users/gvicas17`)
-    .then((res)=> res.json())
+    .then(([res1, res2])=> Promise.all ([res1.json(), res2.json()]))
     .then((data)=> {
       this.setState({
-        username: data.login,
-        image: data.avatar_url,
-        name: data.name,
-        location: data.location
+        username: data[0].login,
+        image: data[0].avatar_url,
+        name: data[0].name,
+        location: data[0].location,
+        followerInfo: data[1]
       })
     })
     .catch((err)=> console.log("error", err))
@@ -39,6 +42,7 @@ class App extends React.Component {
         location = {this.state.location}
         image = {this.state.image}
         />
+        <FollowerData data={this.state.followerInfo}/>
 
      </div>
   </div>
