@@ -33,8 +33,8 @@ class App extends React.Component {
   }
   render(){
   return (
-  <div>
-     <h1>GitHub Users</h1>
+  <div className = "container">
+     <h1 id = "mainTitle">GitHub Users</h1>
      <div>
        <UserCard 
         name={this.state.name}
@@ -42,6 +42,9 @@ class App extends React.Component {
         location = {this.state.location}
         image = {this.state.image}
         />
+
+        <h2 className = "sectionTitle"> My Followers</h2>
+
         <FollowerData data={this.state.followerInfo}/>
 
      </div>

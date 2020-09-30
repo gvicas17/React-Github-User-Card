@@ -4,11 +4,13 @@ import React from 'react'
  const FollowerData = props => {
 
     return(
-        <div>
+        <div className = "followerContainer">
         {props.data.map (data =>
-            <div className = "followerContainer">
+            <div className = "followerCards">
             <h2>{data.login}</h2>
-            <img src = {data.avatar_url} alt = {data.login}/>
+            <div className = "imageContainer">
+            <img className = "followerImage" src = {data.avatar_url} alt = {data.login}/>
+            </div>
             </div>
             )}
 
