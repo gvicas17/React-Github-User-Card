@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: #2f363d;
+}
+h1{
+  font-size: 3rem;
+}
+h2{
+  font-size: 2rem;
+}
+
+h1, h2, h3, h4{
+  color: whitesmoke;
+}
+
+a{
+  color: whitesmoke;
+}
+.myCard {
+  display: flex;
+  border: solid powderblue 5px;
+  justify-content: center;
+  border-radius: 8px;
+  width: 50%;
+  margin: auto;
+  background-color: grey;
+}
+
+.myInfo{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.userCard{
+
+  border: solid powderblue 5px;
+  width: 30%;
+  margin: 1%;
+  border-radius: 8px;
+  background-color: grey;
+}
+
+.userCard img{
+  width: 40%;
+  height: 40%;
+}
+
+.cardContainer{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}

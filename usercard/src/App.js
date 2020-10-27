@@ -29,8 +29,9 @@ class App extends React.Component{
   render(){
   return (
     <div className="App">
-      <h1>Gabby's GitHub</h1>
+      <h1>Gabby's GitHub & Followers</h1>
       <MyCard myInfo = {this.state.myCard}/>
+      <h2>My Followers</h2>
       <Followers/>
     </div>
   );

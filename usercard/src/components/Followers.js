@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import '../App.css'
 
 
 class Followers extends React.Component{
@@ -17,6 +18,7 @@ class Followers extends React.Component{
             this.setState({
                 myFollowers: res.data
             })
+            console.log(res.data)
         })
         .catch(err => {
             console.log(err, 'no follower data')
@@ -26,15 +28,13 @@ class Followers extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className = 'cardContainer'>
                 {this.state.myFollowers.map((follower) => {
                     return(
-                    <div>
+                    <div className = 'userCard'>
                     <h2>{follower.name}</h2>
                     <img src = {follower.avatar_url} alt = {follower.name}/>
-                    <h4>GitHub Profile:</h4> <h4>{follower.url}</h4>
-                    <h4>Followers:</h4> <h4> {follower.followers}</h4>
-                    <h4>Following:</h4> <h4>{follower.following}</h4>
+                    <h4><a href = {follower.html_url}>GitHub Profile</a></h4>
                     </div>
                     )
                 })}
